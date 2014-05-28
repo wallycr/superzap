@@ -11,7 +11,9 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		 $this->call('supZapDatabases');
+		 $this->call('UserTableSeeder');
+		 $this->call('StoreTableSeeder');
+		 $this->call('ArticleTableSeeder');
 
 	}
 
