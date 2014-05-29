@@ -8,6 +8,7 @@ class Article extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'articles';
+	protected $fillable = array('name', 'description');
 
 
 }

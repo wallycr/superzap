@@ -12,11 +12,22 @@ class ArticleController extends \BaseController {
 		/*return View::make('store');*/
 	    $articles = Article::all();
 	 
-	    return Response::json(array(
-	        'success' => true,
-	        'articles' => $articles->toArray()),
-	        200
-	    );
+	    if($articles->isEmpty()){
+		    return Response::json(array(
+		        'success' => false,
+		        'error_code' => "404",
+		        'error_msg' => "Record not found"
+		        ),
+		        200);
+
+	    } else {
+	 
+		    return Response::json(array(
+		        'success' => true,
+		        'articles' => $articles->toArray()),
+		        200
+		    );
+		}
 	}
 
 
@@ -54,11 +65,21 @@ class ArticleController extends \BaseController {
 	            ->take(1)
 	            ->get();
 	 
-	    return Response::json(array(
-	        'success' => true,
-	        'article' => $articles->toArray()),
-	        200
-	    );
+	    if($articles->isEmpty()){
+		    return Response::json(array(
+		        'success' => false,
+		        'error_code' => "404",
+		        'error_msg' => "Record not found"),
+		        200
+		    );
+
+	    } else {
+		    return Response::json(array(
+		        'success' => true,
+		        'article' => $articles->toArray()),
+		        200
+		    );
+	    }
 	}
 
 
