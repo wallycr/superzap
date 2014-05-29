@@ -9,7 +9,14 @@ class ArticleController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		/*return View::make('store');*/
+	    $articles = Article::all();
+	 
+	    return Response::json(array(
+	        'success' => true,
+	        'articles' => $articles->toArray()),
+	        200
+	    );
 	}
 
 
@@ -43,7 +50,15 @@ class ArticleController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+	    $articles = Article::where('id', $id)
+	            ->take(1)
+	            ->get();
+	 
+	    return Response::json(array(
+	        'success' => true,
+	        'article' => $articles->toArray()),
+	        200
+	    );
 	}
 
 

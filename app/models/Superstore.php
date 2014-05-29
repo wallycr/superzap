@@ -1,6 +1,6 @@
 <?php
 
-class Store extends Eloquent {
+class Superstore extends Eloquent {
 
 	/**
 	 * The database table used by the model.
@@ -8,6 +8,6 @@ class Store extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'stores';
-
+	protected $fillable = array('name', 'address');
 
 }

@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('index');
 });
 
 Route::get('/authtest', array('before' => 'auth.basic', function()
@@ -24,5 +24,7 @@ Route::get('/authtest', array('before' => 'auth.basic', function()
 // Route group for API versioning
 Route::group(array('prefix' => 'api/v1', 'before' => 'auth.basic'), function()
 {
-    Route::resource('store', 'StoreController');
+    Route::resource('store', 'SuperstoreController');
+    Route::resource('article', 'ArticleController');
+
 });
